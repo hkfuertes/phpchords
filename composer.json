@@ -1,5 +1,5 @@
 {
-    "name": "phpchords",
+    "name": "hkfuertes/phpchords",
     "type": "library",
     "require-dev": {
         "phpspec/phpspec": "^7.4"
