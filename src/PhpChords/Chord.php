@@ -8,18 +8,18 @@ class Chord
 {
     # Order matters!
     const NOTES_REGEX = [
-        "/^(Do|do|DO|c|C)#/" => 1,
-        "/^(Do|do|DO|c|C)/" => 0,
-        "/^(Re|re|RE|d|D)#/" => 3,
-        "/^(Re|re|RE|d|D)/" => 2,
-        "/^(Mi|mi|MI|e|E)/" => 4,
-        "/^(Fa|fa|Fa|f|F)#/" => 6,
-        "/^(Fa|fa|Fa|f|F)/" => 5,
-        "/^(Sol|sol|SOL|g|G)#/" => 8,
-        "/^(Sol|sol|SOL|g|G)/" => 7,
-        "/^(La|la|LA|a|A)#/" => 10,
-        "/^(La|la|LA|a|A)/" => 9,
-        "/^(Si|si|SI|b|B)/" => 11
+        "/^(Do|do|DO|dO|c|C)#/" => 1,
+        "/^(Do|do|DO|dO|c|C)/" => 0,
+        "/^(Re|re|RE|rE|d|D)#/" => 3,
+        "/^(Re|re|RE|rE|d|D)/" => 2,
+        "/^(Mi|mi|MI|mI|e|E)/" => 4,
+        "/^(Fa|fa|Fa|fA|f|F)#/" => 6,
+        "/^(Fa|fa|Fa|fA|f|F)/" => 5,
+        "/^(Sol|sol|SOL|sOL|soL|SoL|g|G)#/" => 8,
+        "/^(Sol|sol|SOL|sOL|soL|SoL|g|G)/" => 7,
+        "/^(La|la|LA|lA|a|A)#/" => 10,
+        "/^(La|la|LA|lA|a|A)/" => 9,
+        "/^(Si|si|SI|sI|b|B)/" => 11
     ];
 
     const NOTES_SPANISH = ["do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"];
