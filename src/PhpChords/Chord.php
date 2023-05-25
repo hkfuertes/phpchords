@@ -35,7 +35,7 @@ class Chord
     function __construct(string $chord_string)
     {
         $this->input_string = $chord_string;
-        $this->minor = preg_match("/..?.?#?m/", $chord_string) == 1; # Does it end with a 'm'?
+        $this->minor = str_contains($chord_string, 'm');
         if (preg_match("/\d/", $chord_string, $matches)) {
             $this->modifier = $matches[0][0];
         }
