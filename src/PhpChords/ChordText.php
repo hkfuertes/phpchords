@@ -1,5 +1,7 @@
 <?php
 
+namespace PhpChords;
+
 class ChordText
 {
     const REMOVE_BRACKETS_REGEX = "/(\[|\])/";

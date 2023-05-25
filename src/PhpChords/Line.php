@@ -1,5 +1,7 @@
 <?php
 
+namespace PhpChords;
+
 class Line
 {
   const REMOVE_BRACKETS_REGEX = "/(\[|\])/";

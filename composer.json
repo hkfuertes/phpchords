@@ -5,8 +5,8 @@
         "phpspec/phpspec": "^7.4"
     },
     "autoload": {
-        "psr-4": {
-            "PhpChords\\": "src"
+        "psr-0": {
+            "": "src"
         }
     },
     "autoload-dev": {
@@ -25,5 +25,5 @@
     "scripts": {
         "test": "bin/phpspec run"
     },
-    "minimum-stability": "dev" 
+    "minimum-stability": "dev"
 }

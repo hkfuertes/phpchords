@@ -1,10 +1,8 @@
 <?php
 
-namespace spec;
+namespace spec\PhpChords;
 
 use PhpSpec\ObjectBehavior;
-use Line;
-
 class LineSpec extends ObjectBehavior
 {
     function it_starts_with_chord()

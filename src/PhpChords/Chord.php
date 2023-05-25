@@ -1,5 +1,9 @@
 <?php
 
+namespace PhpChords;
+
+use Exception;
+
 class Chord
 {
     # Order matters!
