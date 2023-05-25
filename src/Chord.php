@@ -1,7 +1,5 @@
 <?php
 
-use Exception;
-
 class Chord
 {
     # Order matters!
