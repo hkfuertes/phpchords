@@ -22,4 +22,4 @@ jobs:
       - name: PHPSpec testing
         uses: docker://php
         with:
-          args: bin/phpspec run -c phpspec.yml
+          args: bin/phpspec run
