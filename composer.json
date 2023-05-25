@@ -1,5 +1,5 @@
 {
-    "name": "phpchords/chordpro",
+    "name": "phpchords",
     "type": "library",
     "require-dev": {
         "phpspec/phpspec": "^7.4"
@@ -19,7 +19,7 @@
     },
     "authors": [
         {
-            "name": "Miguel Fuerts (hkfuertes)"
+            "name": "Miguel Fuertes (hkfuertes)"
         }
     ],
     "scripts": {
