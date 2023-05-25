@@ -7,19 +7,20 @@ Chordpro-like example:
 ```
 
 ## Instalation
-This library is provided as a `composer` package. For now its a local repository so you would need to download this repository and add the following in the `composer.json` file of your main project:
+This library is provided as a `composer` package. You would need to add the repository to the `composer.json` file of your main project:
 ```jsonc
 //...
-"repositories": [    
-  {
-    "type": "path",
-    "url": <path_to_this_repos_folder>,
-  }
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/hkfuertes/phpchords.git"
+    }
 ],
 //...
 "require": {
     //...
     "phpchords/chordpro": "dev-main"
+    //...
 },
 //...
 ```
