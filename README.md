@@ -19,7 +19,7 @@ This library is provided as a `composer` package. You would need to add the repo
 //...
 "require": {
     //...
-    "phpchords/chordpro": "dev-main"
+    "hkfuertes/phpchords": "dev-main"
     //...
 },
 //...
@@ -52,7 +52,7 @@ $chord->compareTo('cm'); //Comparator [-1,0,1] --> -1
 $chord->equal($chord2); //false
 $chord->equal('c#m'); //true
 ```
-Please refer to the [spec](spec/Chordpro/ChordSpec.php) to see more examples.
+Please refer to the [spec](spec/PhpChords/ChordSpec.php) to see more examples.
 ### ChordText
 A representation of a whole text. All the operations will be printed/viewed upon `__toString()`:
 ```php
@@ -70,10 +70,49 @@ $chordText->get_tone(); // Chord('c') is retuned
 $chordText->transpose($chord); //transposes to: '[e]song to be wri[f#]tten'
 $chordText->transpose(2); //transposes to: '[d]song to be wri[e]tten'
 ```
-Please refer to the [spec](spec/Chordpro/ChordTextSpec.php) to see more examples.
+Please refer to the [spec](spec/PhpChords/ChordTextSpec.php) to see more examples.
 ### Line
-A abstract representation of a line, splitted into an array. Please refer to the [spec](spec/Chordpro/LineSpec.php) to see examples.
+A abstract representation of a line, splitted into an array. <br/>
+Please refer to the [spec](spec/PhpChords/Printers/LineSpec.php) to see examples.
+
+### CssPrinter
+Utility class to print a chordpro string with `span` and `css`.
+```php
+use PhpChords\Printers\CssPrinter;
+
+$text = "{start_of_chorus}\r\n[do]Vine a ala[Sol]bar a [lam]Dios\r\n{end_of_chorus}\r\nVine a ale[Sol]bar a [lam]Dios";
+echo CssPrinter::print($text);
+
+/*
+Outputs:
+<span class='lyric chord chorus' data-chord='do' data-orig-chord='do'>Vine a ala</span>
+<span class='lyric chord chorus' data-chord='Sol' data-orig-chord='Sol'>bar a </span>
+<span class='lyric chord chorus' data-chord='lam' data-orig-chord='lam'>Dios</span><br/>
+<span>Vine a ale</span>
+<span class='lyric chord' data-chord='Sol' data-orig-chord='Sol'>bar a </span>
+<span class='lyric chord' data-chord='lam' data-orig-chord='lam'>Dios</span>
+*/
+
+```
+Please refer to the [spec](spec/PhpChords/Printers/CssPrinterSpec.php) to see more examples.
+
+> The attribute `data-orig-chord` is usefull when paired with `chord_text.js` to play with the chords in javascript and have a default state.
+
+This output needs some `css`, for example:
+```css
+.chorus { font-weight: bold; }
+.lyric { line-height: 2.7; }
+.chord {
+    position: relative;
+    display: inline-block;
+}
+.chord:before {
+    content: attr(data-chord);
+    position: absolute;
+    top: -1rem;
+    color: #001f3f;
+}
+```
 
 ## TODO
 - Documentation on `chord_text.js`
-- CSS generator
