@@ -48,7 +48,7 @@ $chord->plus(1); //Sets the chord to be 'dm' when the __toString() is called.
 $chord->minus(1); //Sets the chord to be 'cm' when the __toString() is called.
 $chord->transpose(-1) //sets the chord to be 'cm' when the __toString() is called.
 $chord->compareTo($chord2); //Comparator [-1,0,1] --> 1
-$chord->compareTo('cm'); //Comparator [-1,0,1 --> -1
+$chord->compareTo('cm'); //Comparator [-1,0,1] --> -1
 $chord->equal($chord2); //false
 $chord->equal('c#m'); //true
 ```
