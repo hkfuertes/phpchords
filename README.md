@@ -27,7 +27,7 @@ This library is provided as a `composer` package. You would need to add the repo
 Then run a `composer install` to add it into your project.
 
 ## Usage
-3 classes are provided. `Chord`, `ChordText`, `Line`.
+4 classes are provided. `Chord`, `ChordText`, `Line` and `CssPrinter`.
 ### Chord
 A representation of a chord. It will try to parse the given string input. Afterwards operations can be performed on that chord.
 ```php
