@@ -32,7 +32,7 @@ Then run a `composer install` to add it into your project.
 A representation of a chord. It will try to parse the given string input. Afterwards operations can be performed on that chord.
 ```php
 <?php
-use PhpChords\Chordpro\Chord;
+use PhpChords\Chord;
 
 $chord = new Chrod('c#m');
 $chord2 = new Chord('dm');
@@ -57,8 +57,8 @@ Please refer to the [spec](spec/Chordpro/ChordSpec.php) to see more examples.
 A representation of a whole text. All the operations will be printed/viewed upon `__toString()`:
 ```php
 <?php
-use PhpChords\Chordpro\Chord;
-use PhpChords\Chordpro\ChordText;
+use PhpChords\Chord;
+use PhpChords\ChordText;
 
 $text = '[c]song to be wri[d]tten';
 $chord = new Chord('e');
