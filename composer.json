@@ -1,0 +1,29 @@
+{
+    "name": "phpchords/chordpro",
+    "type": "library",
+    "require-dev": {
+        "phpspec/phpspec": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpChords\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "": "src"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "authors": [
+        {
+            "name": "Miguel Fuerts (hkfuertes)"
+        }
+    ],
+    "scripts": {
+        "test": "bin/phpspec run"
+    },
+    "minimum-stability": "dev" 
+}

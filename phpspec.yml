@@ -1,0 +1,4 @@
+formatter: pretty
+suites:
+  chordpro:
+    namespace: Chordpro

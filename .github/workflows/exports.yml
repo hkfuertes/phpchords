@@ -1,0 +1,27 @@
+# This workflow uses actions that are not certified by GitHub.  They are
+# provided by a third-party and are governed by separate terms of service,
+# privacy policy, and support documentation.
+#
+# This workflow will install a prebuilt Ruby version, install dependencies, and
+# run tests and linters.
+name: "exports"
+on:
+  workflow_dispatch:
+#  pull_request:
+#    branches: [ "main" ]
+jobs:
+  phpspec:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Change directory to exports
+        run: cd exports
+      - name: Composer install
+        uses: docker://composer
+        with:
+          args: install
+      - name: PHPSpec testing
+        uses: docker://php
+        with:
+          args: bin/phpspec run -c phpspec.yml
