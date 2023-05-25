@@ -48,7 +48,7 @@ class Line
     preg_match_all(self::CHORD_REGEX, trim($line), $matches,);
     $chords = $matches['chord'];
 
-    if ($line[0] != '[') array_unshift($chords, null);
+    if (strlen($line) && $line[0] != '[') array_unshift($chords, null);
 
     $ret_val = [];
     foreach ($parts as $index => $value) {

@@ -40,8 +40,3 @@ class LineSpec extends ObjectBehavior
         $this->to_array()->shouldBeEqualTo($ret_val);
     }
 }
-
-
-/*
-
- */
