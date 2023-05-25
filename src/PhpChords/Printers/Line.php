@@ -10,12 +10,10 @@ class Line
 
   private $chorus;
   private $first_line;
-  private $line;
   private $parsed = [];
 
   public function __construct(string $line, bool $first_line = false, bool $chorus = false)
   {
-    $this->line = $line;
     $this->first_line = $first_line;
     $this->chorus = $chorus;
     $this->parsed = $this->parse($line);
@@ -31,7 +29,8 @@ class Line
   }
   public function is_text_only()
   {
-    return sizeof($this->parsed) == 1 && is_null(array_values($this->parsed)[0]);
+    // has to be ['bla', null]!
+    return sizeof($this->parsed) == 1 && is_null($this->parsed[0][1]);
   }
   public function to_array()
   {
@@ -53,7 +52,7 @@ class Line
 
     $ret_val = [];
     foreach ($parts as $index => $value) {
-      $ret_val[$value] = $chords[$index];
+      $ret_val[$index] = [$value, $chords[$index]];
     }
 
     return $ret_val;
@@ -94,7 +93,7 @@ class Line
     $is_empty = empty(trim($line_string));
 
     # Only if keyword, we modify the out parameter.
-    if($is_keyword) $chorus = $is_start;
+    if ($is_keyword) $chorus = $is_start;
 
     return $is_empty || $is_keyword;
   }
