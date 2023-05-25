@@ -75,5 +75,5 @@ Please refer to the [spec](spec/Chordpro/ChordTextSpec.php) to see more examples
 A abstract representation of a line, splitted into an array. Please refer to the [spec](spec/Chordpro/LineSpec.php) to see examples.
 
 ## TODO
-- Documentation on chord_tex.js
+- Documentation on `chord_text.js`
 - CSS generator
