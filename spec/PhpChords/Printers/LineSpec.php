@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\PhpChords;
+namespace spec\PhpChords\Printers;
 
 use PhpSpec\ObjectBehavior;
 class LineSpec extends ObjectBehavior

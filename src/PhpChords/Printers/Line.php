@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpChords;
+namespace PhpChords\Printers;
 
 class Line
 {
