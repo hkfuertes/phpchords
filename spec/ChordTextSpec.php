@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\PhpChords\Chordpro;
+namespace spec;
 
 use PhpSpec\ObjectBehavior;
-use PhpChords\Chordpro\ChordText;
-use PhpChords\Chordpro\Chord;
+use ChordText;
+use Chord;
 
 class ChordTextSpec extends ObjectBehavior
 {

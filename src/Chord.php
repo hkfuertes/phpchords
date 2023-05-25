@@ -1,7 +1,5 @@
 <?php
 
-namespace PhpChords\Chordpro;
-
 use Exception;
 
 class Chord

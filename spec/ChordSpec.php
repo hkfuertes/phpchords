@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\PhpChords\Chordpro;
+namespace spec;
 
 use PhpSpec\ObjectBehavior;
-use PhpChords\Chordpro\Chord;
+use Chord;
 
 class ChordSpec extends ObjectBehavior
 {
