@@ -39,6 +39,7 @@ export default class ChordText {
 
     re_create_node(input) {
         this.node = this.create_node(input)
+        this.modifyNode()
     }
 
     get_node() {
@@ -49,7 +50,7 @@ export default class ChordText {
         let style = document.createElement("style")
         style.innerHTML = `
           .chorus { font-weight: bold; }
-          .lyric { line-height: 2.7; }
+          .lyric { line-height: 2.7; white-space: pre;  }
           .song_hidden { display: none; }
           
           .chord {
@@ -68,9 +69,6 @@ export default class ChordText {
 
     // TODO: Review the minus...
     modifyNode() {
-        const ENGLISH = ["c", "c#", "d", "d#", "e", "f", "f#", "g", "g#", "a", "a#", "b"];
-        const SPANISH = ["do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"];
-        let SET = this.english ? ENGLISH : SPANISH;
         this.node.querySelectorAll('.chord').forEach((el) => {
             let chord = el.getAttribute('data-orig-chord');
             let current_index = this._calculateCurrentIndex(chord);
@@ -130,7 +128,7 @@ export default class ChordText {
                     partNode.setAttribute('class', part['chorus'] ? 'lyric chord chorus' : 'lyric chord');
                     partNode.setAttribute('data-chord', part['chord']);
                     partNode.setAttribute('data-orig-chord', part['chord']);
-                    partNode.innerHTML = part['part'];
+                    partNode.innerHTML = this._paddedText(part['part'], part['chord']);
                 } else {
                     partNode.setAttribute('class', part['chorus'] ? 'chorus' : '');
                     partNode.innerHTML = part['part'];
@@ -142,27 +140,36 @@ export default class ChordText {
         return container;
     }
 
+    _paddedText(part, chord) {
+        if ((chord.length + 2) > part.length) {
+            let max = (chord.length - part.length) + 3;
+            return part + (new Array(max)).join(' ')
+        } else {
+            return part;
+        }
+    }
+
+    _emptyPart() {
+        return [{
+            chord: null,
+            chorus: false,
+            part: '&nbsp;'
+        }];
+    }
+
     _parseSongText(song_text) {
         const CHORD_REGEX = /\[.{1,6}\]/g
         let chorus = false;
-        return song_text.replace(/\n\n/g, '\n').split(/\n/g).map((line) => {
-            if (line == "") return null;
+        return song_text.split(/\n/g).map((line) => {
+            if (!line) return this._emptyPart(true);
             if (line.includes('{start_of_chorus}')) {
                 chorus = true;
-                return [{
-                    chord: null,
-                    chorus: false,
-                    part: '&nbsp;'
-                }];
+                return this._emptyPart();
             }
 
             if (line.includes('{end_of_chorus}')) {
                 chorus = false;
-                return [{
-                    chord: null,
-                    chorus: false,
-                    part: '&nbsp;'
-                }];
+                return this._emptyPart();
             }
 
             let parts_for_line = line.trim()
