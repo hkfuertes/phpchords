@@ -145,11 +145,9 @@ class Chord
         if (!is_int($other)) throw new Exception('Expected an Integer');
 
         $real_semitone = $other % sizeof(self::NOTES_SPANISH);
-        if ($real_semitone < $this->chord_num) {
-            $this->chord_num -= $real_semitone;
-        } else {
-            $this->chord_num = ($this->chord_num + sizeof(self::NOTES_SPANISH)) - $real_semitone;
-        }
+        $this->chord_num -= $real_semitone;
+        if($this->chord_num < 0)
+            $this->chord_num += sizeof(self::NOTES_SPANISH);
 
         return $this;
     }
