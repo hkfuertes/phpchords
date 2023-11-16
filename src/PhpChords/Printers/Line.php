@@ -32,6 +32,12 @@ class Line
     // has to be ['bla', null]!
     return sizeof($this->parsed) == 1 && is_null($this->parsed[0][1]);
   }
+
+  public function is_chords_only()
+  {
+    // has to be [[null|"", "do"], [null|" +", "do"], ...]
+    return empty(array_filter($this->parsed, function ($a) { return !empty(trim($a[0]));}));
+  }
   public function to_array()
   {
     return $this->parsed;
