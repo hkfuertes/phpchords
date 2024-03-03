@@ -54,8 +54,11 @@ class Line
     preg_match_all(self::CHORD_REGEX, trim($line), $matches,);
     $chords = $matches['chord'];
 
+    # $chords has all the pieces, 
+    # even an empty chord if the line does not start with chord...
     if (strlen($line) && trim($line[0]) != '[') array_unshift($chords, null);
-    if (strlen($line) && str_ends_with(trim($line), ']')) $parts[]='';
+    $extra = array_fill(0, count($chords) - count($parts), '');
+    $parts = array_merge($parts,$extra);
 
     $ret_val = [];
     foreach ($parts as $index => $value) {
