@@ -55,6 +55,7 @@ class Line
     $chords = $matches['chord'];
 
     if (strlen($line) && $line[0] != '[') array_unshift($chords, null);
+    if (strlen($line) && str_ends_with($line, ']')) $parts[]='';
 
     $ret_val = [];
     foreach ($parts as $index => $value) {
