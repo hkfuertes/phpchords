@@ -1,4 +1,3 @@
-# PHPChords Library
 Simple library writen in php that manipulates chordpro like song data. It allows to change the chords (up and down) and also translate them between english and spanish. Additionally there is a line splitter, preprocessing for other steps down a posible scenario pipeline.
 
 Chordpro-like example:
